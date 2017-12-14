@@ -1,0 +1,16 @@
+{
+    "name": "javascript-simple-terminal",
+    "description": "terminal real quickly",
+    "version": "0.0.1",
+    "author": "Michael Dimmitt",
+    "license": "(MIT)",
+    "repository": "michaeldimmitt/javascript-simple-terminal",
+    "main": "terminal.js",
+    "bin": "terminal.js",
+    "files": [
+        "terminal.js"
+    ],
+    "dependencies": {
+        "child_process": "1.0.2"
+    }
+}
