@@ -10,5 +10,5 @@
   cd javascript-simple-terminal;
   brew install npm;
   npm install;
-  node terminal.js ls;
+  node terminal.js ls; pwd; echo hello_world; ls; echo "that was fun!"
 </pre>
