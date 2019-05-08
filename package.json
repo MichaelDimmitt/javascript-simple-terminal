@@ -7,10 +7,14 @@
     "repository": "michaeldimmitt/javascript-simple-terminal",
     "main": "terminal.js",
     "bin": "terminal.js",
+    "scripts": {
+      "test": "jest"
+    },
     "files": [
         "terminal.js"
     ],
     "dependencies": {
-        "child_process": "1.0.2"
+        "child_process": "1.0.2",
+        "jest": "^24.8.0"
     }
 }
