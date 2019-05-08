@@ -10,5 +10,7 @@
   cd javascript-simple-terminal;
   brew install npm;
   npm install;
-  node term.js ls; pwd; echo hello_world; ls; echo "that was fun!"
+  npm test;
+  # The test suite takes 2 minutes to run please be patient.
+  # This is because it scaffolds an angular application in the background.
 </pre>
