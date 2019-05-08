@@ -2,6 +2,7 @@
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 
+
 const reformat = (res) => JSON.stringify(res).replace(/\\n/g, " ").replace(/[\"]+/g,"").trim();
 const execo = async (command) => { 
   try{
@@ -9,6 +10,12 @@ const execo = async (command) => {
     return { stdout:reformat(stdout), stderr:reformat(stderr) }
   } catch(error) { }
 }
+// const execa = require('execa');
+// test('use ls verify exec child_process working correctly', async (done) => {
+//   const { stdout } = await execa('ls',  [])
+//   expect(JSON.stringify(stdout)).toStrictEqual("true")
+//   done();
+// })
 
 test('use echo true command to verify exec child_process working correctly', async (done) => {
   const { stdout, stderr } = await execo('echo "true"')
@@ -22,7 +29,7 @@ test('verify folder structure prior to @availity/workflow scaffold', async (done
   const { stdout, stderr } = await execo('ls')
   console.log({ stdout, stderr })
   expect(stdout)
-    .toBe('Readme.md node_modules package-lock.json package.json terminal.test.js')
+    .toBe('Readme.md node_modules package-lock.json package.json run_terminal.js terminal.test.js')
   done();
 });
 
@@ -43,7 +50,7 @@ test('check new angular folder in directory', async (done) => {
   const { stdout, stderr } = await execo('ls')
   console.log({ stdout, stderr })
   expect(stdout)
-    .toBe('Readme.md info node_modules package-lock.json package.json terminal.test.js')
+    .toBe('Readme.md info node_modules package-lock.json package.json run_terminal.js terminal.test.js')
   done();
 });
 
@@ -51,7 +58,7 @@ test('check new angular folder in directory', async (done) => {
   const { stdout, stderr } = await execo('ls')
   console.log({ stdout, stderr })
   expect(stdout)
-    .toBe('Readme.md info node_modules package-lock.json package.json terminal.test.js')
+    .toBe('Readme.md info node_modules package-lock.json package.json run_terminal.js terminal.test.js')
   done();
 });
 
@@ -59,7 +66,7 @@ test('cleanup project removing scaffolded angular application', async (done) => 
   const { stdout, stderr } = await execo('rm -rf info; ls')
   console.log({ stdout, stderr })
   expect(stdout)
-    .toBe('Readme.md node_modules package-lock.json package.json terminal.test.js')
+    .toBe('Readme.md node_modules package-lock.json package.json run_terminal.js terminal.test.js')
   done();
 });
 
