@@ -14,3 +14,13 @@
   # The test suite takes 2 minutes to run please be patient.
   # This is because it scaffolds an angular application in the background.
 </pre>
+
+Running the terminal: (usage)
+1) node run_terminal.js 'ls;' ls pwd
+// result: executes the command `ls; ls; pwd;`
+
+2) node run_terminal.js ls pwd ls
+// result: executes the command `ls; pwd; ls;`
+
+3) node run_terminal.js 'ls; echo "hi"; pwd'
+// result: executes the command `ls; echo "hi"; pwd"
