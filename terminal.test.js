@@ -3,14 +3,11 @@ const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 
 const reformat = (res) => JSON.stringify(res).replace(/\\n/g, " ").replace(/[\"]+/g,"").trim();
-const execo = async (command) => {
+const execo = async (command) => { 
   try{
     const { stdout, stderr, err } = await exec(command)
     return { stdout:reformat(stdout), stderr:reformat(stderr) }
-  }
-  catch(error) {
-  }
-
+  } catch(error) { }
 }
 
 test('use echo true command to verify exec child_process working correctly', async (done) => {
@@ -84,5 +81,5 @@ test('show the ping command in action', async (done) => {
   )
   
   done();
-}, 30000);
+});
 
