@@ -14,12 +14,6 @@ const execo = async (command) => {
 }
 
 test('use echo true command to verify exec child_process working correctly', async (done) => {
-  const { stdout } = await execa('echo',  [true])
-  expect({stdout}).toStrictEqual({"stdout": "true"})
-  done();
-})
-
-test('use echo true command to verify exec child_process working correctly', async (done) => {
   const { stdout, stderr } = await execo('echo "true"')
   console.log({ stdout, stderr })
   expect( stdout )
@@ -48,9 +42,7 @@ test('providing correct results for @availity/workflow scaffold', async (done) =
 }, 300000);
 
 test('check new angular folder in directory', async (done) => {
-  try{
   await execo('mkdir info;')
-  } catch (e) {};
   const { stdout, stderr } = await execo('ls')
   console.log({ stdout, stderr })
   expect(stdout)
