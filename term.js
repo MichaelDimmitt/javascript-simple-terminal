@@ -20,7 +20,7 @@ const execute = (info) => {
 const string_construction = (args) => {
   let str = '';
   for (i = 0; i < args.length; i++) {
-    str = str + args[i] + "";
+    str = str + args[i] + "; ";
   }
   str=str ? str : 'echo ;' 
   return str
