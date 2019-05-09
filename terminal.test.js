@@ -129,7 +129,7 @@ test('cleanup project removing scaffolded angular application', async (done) => 
     `.mtrim()
   )
   done();
-});
+}, 30000 );
 
 
 test('show the ping command in action', async (done) => {

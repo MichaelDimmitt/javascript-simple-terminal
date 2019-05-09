@@ -16,6 +16,6 @@
     "dependencies": {
         "child_process": "1.0.2",
         "jest": "^24.8.0",
-        "js-trim-multiline-string": "^1.0.4"
+        "js-trim-multiline-string": "^1.0.5"
     }
 }
