@@ -5,7 +5,7 @@ const { mtrim } = require('js-trim-multiline-string');
 
 test('use echo true command to verify exec child_process working correctly', async (done) => {
   const { stdout, stderr } = await exec('echo "true"');
-  console.log({ stdout, stderr });
+  console.log('stdout: ',stdout,'\n','stderr: ',stderr);
   expect(stdout).toBe(
     `true
     `.mtrim()
@@ -15,7 +15,7 @@ test('use echo true command to verify exec child_process working correctly', asy
 
 test('verify folder structure prior to @availity/workflow scaffold', async (done) => {
   const { stdout, stderr } = await exec('ls');
-  console.log({ stdout, stderr });
+  console.log('stdout: ',stdout,'\n','stderr: ',stderr);
   expect(stdout).toBe(
     `Readme.md
      node_modules
@@ -30,13 +30,14 @@ test('verify folder structure prior to @availity/workflow scaffold', async (done
 
 test('providing correct results for @availity/workflow scaffold', async (done) => {
   const { stdout, stderr } = await exec('npx @availity/workflow init info --package angular');
-  console.log({ stdout, stderr });
+  console.log('stdout: ',stdout,'\n','stderr: ',stderr);
   expect(JSON.stringify(stdout)).toEqual(
     expect.stringContaining('Success!')
   )
   expect(JSON.stringify(stdout)).not.toEqual(
     expect.stringContaining('Successs!')
   )
+  done();
 //        expect(out).toBe(
 //          `
 //          › Creating a new @availity/workflow-plugin-angular app in /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info.
@@ -89,12 +90,11 @@ test('providing correct results for @availity/workflow scaffold', async (done) =
 //
 //          `.mtrim()
 //        )
-  done();
 }, 300000);
 
 test('check new angular folder in directory', async (done) => {
-  const { stdout, stderr } = await exec('ls');
-  console.log({ stdout, stderr });
+  const { stdout, stderr } = await exec('mkdir info; ls');
+  console.log('stdout: ',stdout,'\n','stderr: ',stderr);
   expect(stdout).toBe(
     `Readme.md
      info
@@ -111,7 +111,7 @@ test('check new angular folder in directory', async (done) => {
 
 test('cleanup project removing scaffolded angular application', async (done) => {
   const { stdout, stderr } = await exec('rm -rf info; ls')
-  console.log({ stdout, stderr });
+  console.log('stdout: ',stdout,'\n','stderr: ',stderr);
   expect(stdout).toBe(
     `Readme.md
      node_modules
@@ -125,4 +125,26 @@ test('cleanup project removing scaffolded angular application', async (done) => 
 });
 
 
-
+test('show the ping command in action', async (done) => {
+  const { stdout, stderr } = await exec('ping 8.8.8.8 -c 2')
+  console.log('stdout: ',stdout,'\n','stderr: ',stderr);
+  expect(stdout)
+  .toEqual(
+     expect.stringContaining(
+       'PING 8.8.8.8 (8.8.8.8): 56 data bytes'
+     )
+  )
+  expect(stdout)
+  .toEqual(
+     expect.stringContaining(
+      '64 bytes from 8.8.8.8: icmp_seq=0 ttl='
+     )
+  )
+  expect(stdout)
+  .toEqual(
+     expect.stringContaining(
+      '64 bytes from 8.8.8.8: icmp_seq=1 ttl='
+     )
+  )
+  done();
+});
