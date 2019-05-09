@@ -1,42 +1,42 @@
-const { spawn, exec } = require('child_process');
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 const { mtrim } = require('js-trim-multiline-string');
 
+
 test('use echo true command to verify exec child_process working correctly', async (done) => {
-    await exec('echo "true"', (err, out) => {
-        console.log(err, out);
-        expect(out).toBe(
-          `true
-          `.mtrim()
-        )
-        done();
-    });
+  const { stdout, stderr } = await exec('echo "true"');
+  console.log({ stdout, stderr });
+  expect(stdout).toBe(
+    `true
+    `.mtrim()
+  )
+  done();
 });
 
 test('verify folder structure prior to @availity/workflow scaffold', async (done) => {
-    await exec('ls', (err, out) => {
-        console.log(err, out);
-        expect(out).toBe(
-          `Readme.md
-           node_modules
-           package-lock.json
-           package.json
-           term.js
-           terminal.test.js
-          `.mtrim()
-        )
-        done();
-    });
+  const { stdout, stderr } = await exec('ls');
+  console.log({ stdout, stderr });
+  expect(stdout).toBe(
+    `Readme.md
+     node_modules
+     package-lock.json
+     package.json
+     term.js
+     terminal.test.js
+    `.mtrim()
+  )
+  done();
 });
 
 test('providing correct results for @availity/workflow scaffold', async (done) => {
-    await exec('npx @availity/workflow init info --package angular', (err, out) => {
-        console.log(err, out);
-        expect(JSON.stringify(out)).toEqual(
-          expect.stringContaining('Success!')
-        )
-        expect(JSON.stringify(out)).not.toEqual(
-          expect.stringContaining('Successs!')
-        )
+  const { stdout, stderr } = await exec('npx @availity/workflow init info --package angular');
+  console.log({ stdout, stderr });
+  expect(JSON.stringify(stdout)).toEqual(
+    expect.stringContaining('Success!')
+  )
+  expect(JSON.stringify(stdout)).not.toEqual(
+    expect.stringContaining('Successs!')
+  )
 //        expect(out).toBe(
 //          `
 //          › Creating a new @availity/workflow-plugin-angular app in /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info.
@@ -89,41 +89,39 @@ test('providing correct results for @availity/workflow scaffold', async (done) =
 //
 //          `.mtrim()
 //        )
-        done();
-    });
+  done();
 }, 300000);
 
 test('check new angular folder in directory', async (done) => {
-    await exec('ls', (err, out) => {
-        console.log(err, out);
-        expect(out).toBe(
-          `Readme.md
-           info
-           node_modules
-           package-lock.json
-           package.json
-           term.js
-           terminal.test.js
-          `.mtrim()
-        )
-        done();
-    });
+  const { stdout, stderr } = await exec('ls');
+  console.log({ stdout, stderr });
+  expect(stdout).toBe(
+    `Readme.md
+     info
+     node_modules
+     package-lock.json
+     package.json
+     term.js
+     terminal.test.js
+    `.mtrim()
+  )
+  done();
 });
 
 
 test('cleanup project removing scaffolded angular application', async (done) => {
-    await exec('rm -rf info; ls', (err, out) => {
-        expect(out).toBe(
-          `Readme.md
-           node_modules
-           package-lock.json
-           package.json
-           term.js
-           terminal.test.js
-          `.mtrim()
-        )
-        done();
-    });
+  const { stdout, stderr } = await exec('rm -rf info; ls')
+  console.log({ stdout, stderr });
+  expect(stdout).toBe(
+    `Readme.md
+     node_modules
+     package-lock.json
+     package.json
+     term.js
+     terminal.test.js
+    `.mtrim()
+  )
+  done();
 });
 
 
