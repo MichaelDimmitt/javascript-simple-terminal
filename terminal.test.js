@@ -108,6 +108,13 @@ test('check new angular folder in directory', async (done) => {
   done();
 });
 
+test('check new angular folder in directory', async (done) => {
+  const { stdout, stderr } = await execo('ls')
+  console.log({ stdout, stderr })
+  expect(stdout)
+    .toBe('Readme.md info node_modules package-lock.json package.json run_terminal.js terminal.test.js')
+  done();
+});
 
 test('cleanup project removing scaffolded angular application', async (done) => {
   const { stdout, stderr } = await exec('rm -rf info; ls')
