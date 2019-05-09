@@ -15,7 +15,7 @@
     ],
     "dependencies": {
         "child_process": "1.0.2",
-        "execa": "^1.0.0",
-        "jest": "^24.8.0"
+        "jest": "^24.8.0",
+        "js-trim-multiline-string": "^1.0.4"
     }
 }
