@@ -21,7 +21,7 @@ test('verify folder structure prior to @availity/workflow scaffold', async (done
      node_modules
      package-lock.json
      package.json
-     term.js
+     run_terminal.js
      terminal.test.js
     `.mtrim()
   )
@@ -101,20 +101,20 @@ test('check new angular folder in directory', async (done) => {
      node_modules
      package-lock.json
      package.json
-     term.js
+     run_terminal.js
      terminal.test.js
     `.mtrim()
   )
   done();
 });
 
-test('check new angular folder in directory', async (done) => {
-  const { stdout, stderr } = await execo('ls')
-  console.log({ stdout, stderr })
-  expect(stdout)
-    .toBe('Readme.md info node_modules package-lock.json package.json run_terminal.js terminal.test.js')
-  done();
-});
+// test('check new angular folder in directory', async (done) => {
+//   const { stdout, stderr } = await execo('ls')
+//   console.log({ stdout, stderr })
+//   expect(stdout)
+//     .toBe('Readme.md info node_modules package-lock.json package.json run_terminal.js terminal.test.js')
+//   done();
+// });
 
 test('cleanup project removing scaffolded angular application', async (done) => {
   const { stdout, stderr } = await exec('rm -rf info; ls')
@@ -124,7 +124,7 @@ test('cleanup project removing scaffolded angular application', async (done) => 
      node_modules
      package-lock.json
      package.json
-     term.js
+     run_terminal.js
      terminal.test.js
     `.mtrim()
   )
