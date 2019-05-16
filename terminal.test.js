@@ -38,58 +38,64 @@ test('providing correct results for @availity/workflow scaffold', async (done) =
     expect.stringContaining('Successs!')
   )
   done();
-//        expect(out).toBe(
-//          `
-//          › Creating a new @availity/workflow-plugin-angular app in /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info.
-//           
-//           › Installing packages. This might take a couple of minutes.
-//           › Installing @availity/workflow-plugin-angular...
-//           
-//           
-//           > fsevents@1.2.9 install /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info/node_modules/fsevents
-//           > node install
-//           
-//           [fsevents] Success: "/Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info/node_modules/fsevents/lib/binding/Release/node-v57-darwin-x64/fse.node" is installed via remote
-//           
-//           > node-sass@4.12.0 install /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info/node_modules/node-sass
-//           > node scripts/install.js
-//           
-//           Cached binary found at /Users/michaeldimmitt/.npm/node-sass/4.12.0/darwin-x64-57_binding.node
-//           
-//           > node-sass@4.12.0 postinstall /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info/node_modules/node-sass
-//           > node scripts/build.js
-//           
-//           Binary found at /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info/node_modules/node-sass/vendor/darwin-x64-57/binding.node
-//           Testing binary
-//           Binary is fine
-//           + @availity/workflow-plugin-angular@5.3.0
-//           added 1359 packages from 667 contributors and audited 887195 packages in 45.874s
-//           found 1 high severity vulnerability
-//             run \`npm audit fix\` to fix them, or \`npm audit\` for details
-//           › Installing dependencies using npm...
-//           
-//           added 217 packages from 192 contributors and audited 1762625 packages in 18.797s
-//           found 1 high severity vulnerability
-//             run \`npm audit fix\` to fix them, or \`npm audit\` for details
-//           
-//           ✔ Success! Created info at /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info
-//           › Inside that directory, you can run several commands:
-//           › 
-//           ›   npm start
-//           ›     Starts the development server.
-//           › 
-//           ›   npm run build
-//           ›     Bundles the app into static files for production.
-//           › 
-//           ›   npm test
-//           ›     Starts the test runner.
-//           › 
-//           › We suggest that you begin by typing:
-//           ›   cd info
-//           ›   npm start
-//
-//          `.mtrim()
-//        )
+//   expect(stdout).toBe(
+//     expect.stringContaining(
+//     `
+//     › Creating a new @availity/workflow-plugin-angular app in /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info.
+// 
+//     › Installing packages. This might take a couple of minutes.
+//     › Installing @availity/workflow-plugin-angular...
+// 
+// 
+//     > fsevents@1.2.9 install /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info/node_modules/fsevents
+//     > node install
+// 
+//     [fsevents] Success: "/Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info/node_modules/fsevents/lib/binding/Release/node-v57-darwin-x64/fse.node" is installed via remote
+// 
+//     > node-sass@4.12.0 install /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info/node_modules/node-sass
+//     > node scripts/install.js
+// 
+//     Cached binary found at /Users/michaeldimmitt/.npm/node-sass/4.12.0/darwin-x64-57_binding.node
+// 
+//     > node-sass@4.12.0 postinstall /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info/node_modules/node-sass
+//     > node scripts/build.js
+// 
+//     Binary found at /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info/node_modules/node-sass/vendor/darwin-x64-57/binding.node
+//     Testing binary
+//     Binary is fine
+//     + @availity/workflow-plugin-angular@5.3.1
+//     added 1360 packages from 668 contributors and audited 887180 packages in 36.511s
+//     found 0 vulnerabilities
+// 
+//     › Installing dependencies using npm...
+// 
+// 
+//     > fsevents@1.2.7 install /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info/node_modules/fsevents
+//     > node install
+// 
+//     [fsevents] Success: "/Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info/node_modules/fsevents/lib/binding/Release/node-v57-darwin-x64/fse.node" is installed via remote
+//     added 491 packages from 270 contributors, removed 55 packages, updated 177 packages, moved 4 packages and audited 968067 packages in 44.398s
+//     found 12 vulnerabilities (8 moderate, 4 high)
+//       run \`npm audit fix\` to fix them, or \`npm audit\` for details
+// 
+//     ✔ Success! Created info at /Users/michaeldimmitt/new_c/97_lunchpool/simp-js_term/info
+//     › Inside that directory, you can run several commands:
+//     › 
+//     ›   npm start
+//     ›     Starts the development server.
+//     › 
+//     ›   npm run build
+//     ›     Bundles the app into static files for production.
+//     › 
+//     ›   npm test
+//     ›     Starts the test runner.
+//     › 
+//     › We suggest that you begin by typing:
+//     ›   cd info
+//     ›   npm start
+//     `.mtrim()
+//     )
+//   )
 }, 300000);
 
 test('check new angular folder in directory', async (done) => {
