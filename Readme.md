@@ -1,3 +1,8 @@
+## Usage: simp-js-terminal is not an npm package:
+```bash
+terminal('git clone https://github.com/MichaelDimmitt/simp-js_term.git')
+```
+
 ## Objectives
 
 ## Execute a file in node(without a server)
