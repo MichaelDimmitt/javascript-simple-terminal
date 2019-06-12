@@ -1,7 +1,12 @@
 ## Usage: simp-js-terminal is not an npm package:
 ```bash
+const { terminal } = require('javascript-simple-terminal')
 terminal('git clone https://github.com/MichaelDimmitt/simp-js_term.git')
 ```
+
+## Project is implemented on this branch:
+https://github.com/TylerGlisson/getRepos/blob/javascript-simple-terminal/getRepos.js
+
 
 ## Objectives
 
