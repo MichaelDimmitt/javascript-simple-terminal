@@ -9,11 +9,24 @@ const execo = async (command) => {
   } catch(error) { }
 }
 
-const terminal = async (str) => {
+const string_construction = (args) => {
+  let str = ''; for (i = 0; i < args.length; i++) { str = str + " " + check_semicolon(args[i]); }
+  str=str ? str : 'echo ;'
+  console.log({str})
+  return str
+}
+const check_semicolon = (str) => {
+  if( str[str.length -1] == ';' ) { return str }
+  else { return str + ';' }
+}
+
+const terminal = async () => {
   console.log(
     await execo(
-      str
+      string_construction(
+        process.argv.slice(2)
+      )
     )
   )
 }
-export default terminal;
+terminal()
